@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/algo3.24/algo3.24.iml" filepath="$PROJECT_DIR$/algo3.24/algo3.24.iml" />
+      <module fileurl="file://$PROJECT_DIR$/algo3.24_2/algo3.24_2.iml" filepath="$PROJECT_DIR$/algo3.24_2/algo3.24_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/algo_3.31/algo_3.31.iml" filepath="$PROJECT_DIR$/algo_3.31/algo_3.31.iml" />
+      <module fileurl="file://$PROJECT_DIR$/algo_3.31_2/algo_3.31_2.iml" filepath="$PROJECT_DIR$/algo_3.31_2/algo_3.31_2.iml" />
       <module fileurl="file://$PROJECT_DIR$/prog_argorithm.iml" filepath="$PROJECT_DIR$/prog_argorithm.iml" />
     </modules>
   </component>
