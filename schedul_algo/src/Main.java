@@ -32,18 +32,18 @@ public class Main {
 
         }
 
-        worklist.sort(Comparator.comparing(work -> work.end));
+        worklist.sort(Comparator.comparing(work -> work.start));
 
 
         int count = 1;
-        int last_work = worklist.get(0).end;
-        System.out.println("start worklist end :"+ last_work);
+        int first_work = worklist.get(0).start;
+        System.out.println("start worklist start :"+ first_work);
 
         for (int i = 1; i < size; i++) {
-            if (worklist.get(i).start < last_work) {
+            if (worklist.get(i).end >= first_work) {
                 count++;
-                last_work = worklist.get(i).end;
-                System.out.println("worklist end :"+ last_work);
+                first_work = worklist.get(i).start;
+                System.out.println("worklist start :"+ first_work);
 
             }
         }
