@@ -1,0 +1,539 @@
+Index: algo_3.31_2/src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\nclass Edge{\r\n\r\n}\r\n\r\npublic class Main {\r\n\r\n\r\n    public static void main(String[] args) {\r\n\r\n        Edge\r\n\r\n        System.out.println(\"Hello world!\");\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/algo_3.31_2/src/Main.java b/algo_3.31_2/src/Main.java
+--- a/algo_3.31_2/src/Main.java	(revision da057e4eda663435b6cf32cefdce9bb2646818ed)
++++ b/algo_3.31_2/src/Main.java	(date 1680248455863)
+@@ -1,6 +1,28 @@
++import java.util.ArrayList;
++import java.util.Collections;
++import java.util.Comparator;
++import java.util.HashSet;
+ 
+ class Edge{
+ 
++    int weight;
++    char v1;
++    char v2;
++
++
++    @Override
++    public String toString() {
++        return String.format("[%c(%02d)%c", v1, weight, v2);
++    }
++
++    public Edge(int weight, char v1, char v2){
++        this.weight = weight;
++        this.v1 =v1;
++        this.v2 =v2;
++
++
++
++    }
+ }
+ 
+ public class Main {
+@@ -8,8 +30,43 @@
+ 
+     public static void main(String[] args) {
+ 
+-        Edge
++        int[] weight ={1, 1, 2, 3, 4, 4, 7, 8, 9};
++        char[] v1s = {'B', 'C', 'b', ''};
++        char[] v2s = {};
++
++
++        ArrayList<Edge> L =new ArrayList<Edge>();
++
++        for(int i=0; i< weight.length; i++){
++            L.add(new Edge(weight[i], v1s[i], v2s[i]));
++
++        }
++
++        Comparator<Edge> comparator = new Comparator<Edge>() {
++            @Override
++            public int compare(Edge o1, Edge o2) {
++                return o1.v1 -o2.v1;
++            }
++        };
++
++        Collections.sort(L, comparator);
++
++
++        while(T.size() < vertices.size() -1)
++
++            ;
++        private static boolean isNotCyclic(HashSet<Edge>T, Edge tmp){
++
++            HashSet<Character> x = new HashSet<Character>();
++            for (Edge e: T){
++                x.add(e.v1);
++                x.add(e.v2);
+ 
+-        System.out.println("Hello world!");
++            }
++            return !x.contains(tmp.v1) && x.contains((tmp.v2));
++        }
++
++
++        System.out.println(L);
+     }
+ }
+\ No newline at end of file
+Index: algo_4.07_1/algo_4.07_1.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/algo_4.07_1/algo_4.07_1.iml b/algo_4.07_1/algo_4.07_1.iml
+new file mode 100644
+--- /dev/null	(date 1680844316471)
++++ b/algo_4.07_1/algo_4.07_1.iml	(date 1680844316471)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: algo_4.07_3/src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/algo_4.07_3/src/Main.java b/algo_4.07_3/src/Main.java
+new file mode 100644
+--- /dev/null	(date 1680854152304)
++++ b/algo_4.07_3/src/Main.java	(date 1680854152304)
+@@ -0,0 +1,37 @@
++import java.util.ArrayList;
++
++public class Main {
++    public static void main(String[] args) {
++
++
++
++        System.out.println("Hello world!");
++    }
++
++
++
++    class Task{
++        int s;
++        int e;
++        int id;
++
++        static int x =0;
++
++        public Task(int id, int s, int e){
++            this.id = x++;
++            this.s = s;
++            this.e =e;
++
++        }
++    }
++
++    class Machine {
++        int id;
++        int e;
++        ArrayList<Task> tasks;
++
++
++
++
++    }
++}
+\ No newline at end of file
+Index: algo_4.07_1/src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/algo_4.07_1/src/Main.java b/algo_4.07_1/src/Main.java
+new file mode 100644
+--- /dev/null	(date 1680846054720)
++++ b/algo_4.07_1/src/Main.java	(date 1680846054720)
+@@ -0,0 +1,74 @@
++import java.util.ArrayList;
++import java.util.Collections;
++import java.util.Comparator;
++import java.util.Properties;
++
++class Product {
++    String name;
++    int weight;
++    int value;
++    double unitValue;
++
++    public Product(String name, int weight, int value) {
++        this.name = name;
++        this.weight = weight;
++        this.value = value;
++        this.unitValue = (double) value / weight;
++    }
++
++    @Override
++    public String toString() {
++        return String.format("[%s] (%d, %d) => %.1f", name, weight, value, unitValue);
++    }
++}
++public class Main {
++    public static void main(String[] args) {
++
++        ArrayList<Product> s =new ArrayList<Product>();
++
++        s.add(new Product("주석",50, 50000));
++        s.add(new Product("백금",10, 600000));
++        s.add(new Product("은",25, 100000));
++        s.add(new Product("금",15, 750000));
++
++        Comparator<Product> comp = new Comparator<Product>() {
++            @Override
++            public int compare(Product o1, Product o2) {
++                return (int) (o2.unitValue - o1.unitValue);
++            }
++
++        };
++
++
++        Collections.sort(s, comp);
++
++
++
++        ArrayList<Product> x =new ArrayList<>();
++
++        int w =0;
++        int v = 0;
++        int capacity = 40;
++
++        Product tmp = s.remove(0);
++        while (w + tmp.weight <= capacity ){
++            x.add(tmp);
++            w += tmp.weight;
++            v += tmp.value;
++
++            tmp = s.remove(0);
++        }
++
++        if (capacity - w >0){
++            int value = (int)((capacity-w) * tmp.unitValue);
++            x.add(new Product(tmp.name,capacity-w, value));
++            v += value;
++        }
++
++
++
++
++        System.out.println(x);
++        System.out.println(v);
++    }
++}
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectModuleManager\">\r\n    <modules>\r\n      <module fileurl=\"file://$PROJECT_DIR$/algo3.24/algo3.24.iml\" filepath=\"$PROJECT_DIR$/algo3.24/algo3.24.iml\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/algo3.24_2/algo3.24_2.iml\" filepath=\"$PROJECT_DIR$/algo3.24_2/algo3.24_2.iml\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/algo_3.31/algo_3.31.iml\" filepath=\"$PROJECT_DIR$/algo_3.31/algo_3.31.iml\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/algo_3.31_2/algo_3.31_2.iml\" filepath=\"$PROJECT_DIR$/algo_3.31_2/algo_3.31_2.iml\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/prog_argorithm.iml\" filepath=\"$PROJECT_DIR$/prog_argorithm.iml\" />\r\n    </modules>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+--- a/.idea/modules.xml	(revision da057e4eda663435b6cf32cefdce9bb2646818ed)
++++ b/.idea/modules.xml	(date 1680853458155)
+@@ -6,6 +6,9 @@
+       <module fileurl="file://$PROJECT_DIR$/algo3.24_2/algo3.24_2.iml" filepath="$PROJECT_DIR$/algo3.24_2/algo3.24_2.iml" />
+       <module fileurl="file://$PROJECT_DIR$/algo_3.31/algo_3.31.iml" filepath="$PROJECT_DIR$/algo_3.31/algo_3.31.iml" />
+       <module fileurl="file://$PROJECT_DIR$/algo_3.31_2/algo_3.31_2.iml" filepath="$PROJECT_DIR$/algo_3.31_2/algo_3.31_2.iml" />
++      <module fileurl="file://$PROJECT_DIR$/algo_4.07_1/algo_4.07_1.iml" filepath="$PROJECT_DIR$/algo_4.07_1/algo_4.07_1.iml" />
++      <module fileurl="file://$PROJECT_DIR$/algo_4.07_2/algo_4.07_2.iml" filepath="$PROJECT_DIR$/algo_4.07_2/algo_4.07_2.iml" />
++      <module fileurl="file://$PROJECT_DIR$/algo_4.07_3/algo_4.07_3.iml" filepath="$PROJECT_DIR$/algo_4.07_3/algo_4.07_3.iml" />
+       <module fileurl="file://$PROJECT_DIR$/prog_argorithm.iml" filepath="$PROJECT_DIR$/prog_argorithm.iml" />
+     </modules>
+   </component>
+Index: algo_4.07_3/algo_4.07_3.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/algo_4.07_3/algo_4.07_3.iml b/algo_4.07_3/algo_4.07_3.iml
+new file mode 100644
+--- /dev/null	(date 1680853458144)
++++ b/algo_4.07_3/algo_4.07_3.iml	(date 1680853458144)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"72384ce1-7901-4ce8-b9fb-8f1658f49f4e\" name=\"Changes\" comment=\"new algo\">\r\n      <change afterPath=\"$PROJECT_DIR$/algo3.24/src/QuickSort.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/algo3.24_2/algo3.24_2.iml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/algo3.24_2/src/Select.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/algo_3.31_2/src/Main.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/modules.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/modules.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/algo3.24/src/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/algo_3.31/src/Main.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2N8IZ6C4VJeTFQVTgE8mIDEqo2L\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-18&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/asdcv/IdeaProjects/Java_Pro2_prectice_workspace/Prog2_12.07_3&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"java\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"openjdk-18\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <module name=\"prog_argorithm\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"72384ce1-7901-4ce8-b9fb-8f1658f49f4e\" name=\"Changes\" comment=\"\" />\r\n      <created>1679039337115</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1679039337115</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"new algo\">\r\n      <created>1679635108898</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1679635108898</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"new algo\">\r\n      <created>1679635121843</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1679635121843</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"new algo\">\r\n      <created>1679635165718</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1679635165718</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"new algo\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"new algo\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision da057e4eda663435b6cf32cefdce9bb2646818ed)
++++ b/.idea/workspace.xml	(date 1680877800445)
+@@ -1,19 +1,30 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="72384ce1-7901-4ce8-b9fb-8f1658f49f4e" name="Changes" comment="new algo">
+-      <change afterPath="$PROJECT_DIR$/algo3.24/src/QuickSort.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/algo3.24_2/algo3.24_2.iml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/algo3.24_2/src/Select.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/algo_3.31_2/src/Main.java" afterDir="false" />
++    <list default="true" id="72384ce1-7901-4ce8-b9fb-8f1658f49f4e" name="Changes" comment="3.31">
++      <change afterPath="$PROJECT_DIR$/algo_3.31/algo_3.31.iml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/algo_3.31_2/algo_3.31_2.iml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/algo_4.07_1/algo_4.07_1.iml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/algo_4.07_1/src/Main.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/algo_4.07_2/algo_4.07_2.iml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/algo_4.07_2/src/Main.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/algo_4.07_3/algo_4.07_3.iml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/algo_4.07_3/src/Main.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/algo3.24/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/algo_3.31/src/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/algo_3.31_2/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/algo_3.31_2/src/Main.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Class" />
++      </list>
++    </option>
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -37,14 +48,22 @@
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-18&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/asdcv/IdeaProjects/Java_Pro2_prectice_workspace/Prog2_12.07_3&quot;
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/asdcv/IdeaProjects/Java_Pro2_prectice_workspace/Prog2_12.07_3&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+   }
+ }</component>
++  <component name="RecentsManager">
++    <key name="CreateClassDialog.RecentsKey">
++      <recent name="" />
++    </key>
++  </component>
+   <component name="RunManager">
+-    <configuration name="java" type="Application" factoryName="Application">
+-      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-18" />
++    <configuration name="SetCover" type="Application" factoryName="Application" nameIsGenerated="true">
++      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-18.0.2.1" />
+       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+-      <module name="prog_argorithm" />
++      <option name="MAIN_CLASS_NAME" value="SetCover" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+@@ -80,7 +99,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1679635165718</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="3.31">
++      <created>1680243976991</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1680243976991</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -97,6 +123,7 @@
+   <component name="VcsManagerConfiguration">
+     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+     <MESSAGE value="new algo" />
+-    <option name="LAST_COMMIT_MESSAGE" value="new algo" />
++    <MESSAGE value="3.31" />
++    <option name="LAST_COMMIT_MESSAGE" value="3.31" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: algo_3.31/algo_3.31.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/algo_3.31/algo_3.31.iml b/algo_3.31/algo_3.31.iml
+new file mode 100644
+--- /dev/null	(date 1680241608394)
++++ b/algo_3.31/algo_3.31.iml	(date 1680241608394)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: algo_4.07_2/algo_4.07_2.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/algo_4.07_2/algo_4.07_2.iml b/algo_4.07_2/algo_4.07_2.iml
+new file mode 100644
+--- /dev/null	(date 1680847838587)
++++ b/algo_4.07_2/algo_4.07_2.iml	(date 1680847838587)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: algo_4.07_2/src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/algo_4.07_2/src/Main.java b/algo_4.07_2/src/Main.java
+new file mode 100644
+--- /dev/null	(date 1680851806833)
++++ b/algo_4.07_2/src/Main.java	(date 1680851806833)
+@@ -0,0 +1,79 @@
++import java.util.ArrayList;
++import java.util.Arrays;
++import java.util.HashSet;
++import java.util.Set;
++
++class MySet<E> extends HashSet<E>{
++    @SafeVarargs
++    public MySet(E... vector) {
++        addAll(Arrays.asList(vector));
++    }
++}
++
++
++public class Main {
++    public static void main(String[] args) {
++
++
++        HashSet<Integer> u = new HashSet<>();
++        for (int i =0; i<10; i++){
++            u.add(i+1);
++        }
++        HashSet<MySet<Integer>> f = new HashSet<MySet<Integer>>();
++        f.add(new MySet<>(1,2,3,8));
++        f.add(new MySet<>(1,2,3,4,8));
++        f.add(new MySet<>(1,2,3,4));
++        f.add(new MySet<>(2,3,4,5,7,8));
++        f.add(new MySet<>(4,5,6,7));
++        f.add(new MySet<>(5,6,7,9,10));
++        f.add(new MySet<>(4,5,6,7));
++        f.add(new MySet<>(1,2,4,8));
++        f.add(new MySet<>(6,9));
++        f.add(new MySet<>(6,10));
++
++
++        ArrayList<MySet<Integer>> c = new ArrayList<>();
++
++        while (!u.isEmpty()){
++            MySet<Integer> s = func(u, f); // u의 원소를 가장 많이 포함하는 f의 원소 찾기
++            u.removeAll(s);
++            f.remove(s);
++            c.add(s);
++
++        }
++
++        System.out.println(c);
++
++    }
++
++
++    private static int func2(HashSet<Integer> u, MySet<Integer> s){
++        int n =0;
++        for (int i : s) {
++            if (u.contains(i)) {
++                n += 1;
++            }
++        }
++            return n;
++
++    }
++    private static MySet<Integer> func(HashSet<Integer> u, HashSet<MySet<Integer>> f) {
++
++        MySet y = null;
++        int max = 0;
++
++
++
++        for (MySet x : f){
++            int i =func2(u, x);
++            if (max < i ){
++                max = i;
++                y = x;
++            }
++
++
++        }
++
++        return y;
++    }
++}
+\ No newline at end of file
+Index: algo_3.31_2/algo_3.31_2.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/algo_3.31_2/algo_3.31_2.iml b/algo_3.31_2/algo_3.31_2.iml
+new file mode 100644
+--- /dev/null	(date 1680243958307)
++++ b/algo_3.31_2/algo_3.31_2.iml	(date 1680243958307)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
