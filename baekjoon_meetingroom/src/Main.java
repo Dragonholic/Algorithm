@@ -2,15 +2,23 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
 
-class work{
+class Work {
 
     long start;
     long end;
 
 
-    public work(long start, long end ){
+    public Work(long start, long end ){
         this.start = start;
         this.end = end;
+    }
+
+    public long getStart() {
+        return start;
+    }
+
+    public long getEnd() {
+        return end;
     }
 
 
@@ -27,13 +35,14 @@ public class Main {
 
         long size = scanner.nextLong();
 
-        ArrayList<work> worklist = new ArrayList<>();
+        ArrayList<Work> worklist = new ArrayList<>();
 
         for (int i = 0; i < size; i++) {
-            worklist.add(new work(scanner.nextLong(),scanner.nextLong()));
+            worklist.add(new Work(scanner.nextLong(),scanner.nextLong()));
         }
 
-        worklist.sort(Comparator.comparing(work -> work.end));
+
+        worklist.sort(Comparator.comparing(Work::getEnd).thenComparing(Work::getStart));
 
 
         long count = 1;
