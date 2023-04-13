@@ -31,12 +31,9 @@ public class Main {
 
         for (int i = 0; i < size; i++) {
             worklist.add(new work(scanner.nextLong(),scanner.nextLong()));
-
         }
 
         worklist.sort(Comparator.comparing(work -> work.end));
-
-
 
 
         long count = 1;
@@ -46,7 +43,6 @@ public class Main {
             if (worklist.get(i).start >= work1_end) {
                 ++count;
                 work1_end = worklist.get(i).end;
-
             }
         }
         System.out.println(count);
